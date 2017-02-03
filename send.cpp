@@ -18,6 +18,8 @@ void printUsage()
 	std::cout << "    e.g. sudo ./send c 2 3 1\n";
 	std::cout << "         sudo ./send <dipSwitchGroup> <dipSwitchUnit> <command>\n";
 	std::cout << "    e.g. sudo ./send 11100 00001 1\n";
+	std::cout << "         sudo ./send <protocol> <command>\n";
+	std::cout << "    e.g. sudo ./send 3 000000000001010100010001\n";
 	std::cout << "\n";
 	std::cout << "  Command is 0 for OFF and 1 for ON\n";
 	std::cout << "\n";
@@ -36,7 +38,12 @@ int main(int argc, char *argv[]) {
 	RCSwitch mySwitch = RCSwitch();
 	mySwitch.enableTransmit(PIN);
 	
-	if(argc == 4)
+	if (argc == 3) {
+		int sProtocol = atoi(argv[1]);
+		char* command = argv[2];
+		mySwitch.setProtocol(sProtocol);
+		mySwitch.send(command);
+	} else if(argc == 4)
 	{
 		char* sGroup = argv[1];
 		char* sSwitch = argv[2];
