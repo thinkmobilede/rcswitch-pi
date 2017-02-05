@@ -55,7 +55,7 @@ enter `sudo visudo` and edit the configuration file. Add the line to allow OpenH
 ```
 #User privilege specification
 root    ALL=(ALL:ALL) ALL
-openhab ALL=NOPASSWD: /opt/rc-switch/switch
+openhab ALL=NOPASSWD: /opt/rc-switch/rcswitch-pi
 ```
 
 ##Configuration
