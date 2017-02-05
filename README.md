@@ -53,10 +53,10 @@ This tool can be executed from OpenHAB with the exec-Library. Running on OpenHAB
 ##Allow execution of the script
 enter `sudo visudo` and edit the configuration file. Add the line to allow OpenHAB to execute a sudo command:
 ```
-&#35;#User privilege specification
+# #User privilege specification
 root    ALL=(ALL:ALL) ALL
 openhab ALL=NOPASSWD: /opt/rc-switch/switch
-*```
+```
 
 ##Configuration
 you need an item that has a command for on and off, example:
