@@ -53,17 +53,21 @@ This tool can be executed from OpenHAB with the exec-Library. Running on OpenHAB
 ##Allow execution of the script
 enter `sudo visudo` and edit the configuration file. Add the line to allow OpenHAB to execute a sudo command:
 ```
-# #User privilege specification
+#User privilege specification
 root    ALL=(ALL:ALL) ALL
 openhab ALL=NOPASSWD: /opt/rc-switch/switch
 ```
 
 ##Configuration
 you need an item that has a command for on and off, example:
-`Switch MyLamp1 "Door lamp" {exec=">[OFF:sudo /opt/rc-switch/rcswitch-pi/send 5 000000000001010100010001] >[ON:sudo /opt/rc-switch/rcswitch-pi/send 5 000000000001010100010000]"}`
+```
+Switch MyLamp1 "Door lamp" {exec=">[OFF:sudo /opt/rc-switch/rcswitch-pi/send 5 000000000001010100010001] >[ON:sudo /opt/rc-switch/rcswitch-pi/send 5 000000000001010100010000]"}
+```
 
 and add your Switch to the sitemap:
-`Switch MyLamp1`
+```
+Switch MyLamp1
+```
 
 ##Trouble shooting
 If you are facing problems, first check that the command on the shell is executed correctly and the switch is working. If this is working but it does not work on OpenHAB, check the rights and the user that OpenHAB is running on. 
